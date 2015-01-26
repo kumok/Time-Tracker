@@ -8,6 +8,7 @@
 //
 
 #import "Project.h"
+#import "TTProjectController.h"
 
 static NSString * const projectTitleKey = @"title";
 static NSString * const entriesKey = @"entries";
@@ -51,9 +52,18 @@ static NSString * const entriesKey = @"entries";
 }
 
 // i think this one is not required since entries is a property and we don't need a setter method for property ?
--(void)setEntries1:(NSArray *)entries {
+-(void)setEntries:(NSArray *)entries {
     self.entries = entries;
+    [self synchronize];
+
 }
+
+- (void)synchronize {
+    
+    [[TTProjectController sharedInstance] synchronize];
+    
+}
+
 
 
 -(void)startNewEntry {

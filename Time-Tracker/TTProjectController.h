@@ -19,7 +19,7 @@
 
 -(void)addProject:(Project *)projects;
 -(void) removeProject:(Project *)project;
--(void)setProjects1:(NSArray *)project;
+-(void)setProjets:(NSArray *)project;
 -(void)synchronize;
 
 
