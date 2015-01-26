@@ -9,6 +9,7 @@
 #import "TTListViewController.h"
 #import "TTViewControllerDataSource.h"
 #import "TTDetailViewController.h"
+#import "TTProjectController.h"
 
 @interface TTListViewController () <UITableViewDelegate>
 
@@ -22,7 +23,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = @"Time Tracker";
+        self.dataSource = [TTViewControllerDataSource new];
     }
     return self;
 }
@@ -39,16 +40,23 @@
     [self.view addSubview:self.projectTableView];
     
     self.projectTableView.delegate = self;
-    self.dataSource = [TTViewControllerDataSource new];
-
     self.projectTableView.dataSource = self.dataSource;
     [self.dataSource registerTableView:self.projectTableView];
 
+    
     //create a bar button on the view controller
     UIBarButtonItem *addProjectButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewProject)];
     
     self.navigationItem.rightBarButtonItem = addProjectButton;
     
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    
+    [self.projectTableView reloadData];
     
 }
 
@@ -58,14 +66,21 @@
 
     TTDetailViewController *projectView = [TTDetailViewController new];
     // make sure to link project here
-    
+    Project * project = [TTProjectController sharedInstance].projets[indexPath.row];
+    projectView.project = project;
     [self.navigationController pushViewController:projectView animated:YES];
 }
 
 -(void)addNewProject {
     // this runs when the bar button is click and push the subview to create a new project
     
+    Project *project = [Project new];
+    [[TTProjectController sharedInstance] addProject:project];
     
+    TTDetailViewController *dvc = [TTDetailViewController new];
+    dvc.project = project;
+    
+    [self.navigationController pushViewController:dvc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

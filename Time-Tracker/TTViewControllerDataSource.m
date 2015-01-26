@@ -7,34 +7,35 @@
 //
 
 #import "TTViewControllerDataSource.h"
+#import "TTProjectController.h"
 #import "Project.h"
 
 @implementation TTViewControllerDataSource 
 
 
 - (void)registerTableView:(UITableView *)tableView {
-    [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
+    [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"ListCell"];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 //    return [EntryController sharedInstance].entries.count;
-    return [self sampleArray].count;
+    
+    return [[TTProjectController sharedInstance].projets count];
+
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class])];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ListCell"];
     
-//    Entry *entry = [EntryController sharedInstance].entries[indexPath.row];
-//    cell.textLabel.text = entry.title;
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"ListCell"];
+    }
     
-    cell.textLabel.text = [self sampleArray][indexPath.row];
-    
+    Project *pj = [TTProjectController sharedInstance].projets[indexPath.row];
+    cell.textLabel.text = pj.title;
     return cell;
 }
 
--(NSArray *) sampleArray {
-    return @[@"1",@"2",@"3"];
-}
 
 @end

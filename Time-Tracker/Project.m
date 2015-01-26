@@ -9,35 +9,84 @@
 
 #import "Project.h"
 
-//static NSString * const projectTitleKey = @"title";
-//static NSString * const entriesKey = @"entries";
+static NSString * const projectTitleKey = @"title";
+static NSString * const entriesKey = @"entries";
 
+@interface Project ()
+
+@property (strong, nonatomic) Entry *currentEntry;
+
+@end
 
 @implementation Project
 
-//- (NSDictionary *)projectDictionary {
-//    NSDictionary *dictionary = [NSDictionary dictionary];
-//    
-//    return dictionary;
-//}
-//
-//-(id) initWithDictionary:(NSDictionary *)dictionary{
-//    self = [super init];
-//    if (self) {
-//        self.title = dictionary[projectTitleKey];
-//        NSMutableArray *entries = [NSMutableArray new];
-//    }
-//    
-//    return self;
-//}
-//
-//
-//-(void)addEntry:(Entry *)entry {
-//    
-//}
-//-(void)removeEntry:(Entry *)entry {
-//    
-//}
+
+
+-(id) initWithDictionary:(NSDictionary *)dictionary{
+    self = [super init];
+    if (self) {
+        self.title = dictionary[projectTitleKey];
+        NSMutableArray *entries = [NSMutableArray new];
+        entries = dictionary[entriesKey];
+        self.entries = entries;
+    }
+    
+    return self;
+}
+
+- (NSDictionary *)projectDictionary {
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    if (self.title) {
+    [dictionary setObject:self.title forKey:projectTitleKey];
+    }
+    NSMutableArray *entries = [NSMutableArray new];
+    
+    for (Entry *entry in self.entries) {
+        [entries addObject:[entry entryDictionary]];
+    }
+    
+    [dictionary setObject:entries forKey:entriesKey];
+    
+    return dictionary;
+}
+
+// i think this one is not required since entries is a property and we don't need a setter method for property ?
+-(void)setEntries1:(NSArray *)entries {
+    self.entries = entries;
+}
+
+
+-(void)startNewEntry {
+    
+}
+-(void)endCurrentEntry {
+    
+}
+
+-(void)addEntry:(Entry *)entry {
+    
+    if (!entry) {
+        return;
+    }
+    
+    NSMutableArray *e = [[NSMutableArray alloc] initWithArray:self.entries];
+    [e addObject:entry];
+    
+    self.entries = e;
+    
+    
+    
+}
+-(void)removeEntry:(Entry *)entry {
+    if (!entry) {
+        return;
+    }
+    
+    NSMutableArray *e = [[NSMutableArray alloc] initWithArray:self.entries];
+    [e removeObject:entry];
+    
+    self.entries = e;
+}
 
 
 @end

@@ -26,6 +26,9 @@
 		EA189AD21A742C130002A4FF /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = EA189AD11A742C130002A4FF /* Entry.m */; };
 		EA189AD61A74394E0002A4FF /* TTDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA189AD41A74394E0002A4FF /* TTDetailViewController.m */; };
 		EA189AD71A74394E0002A4FF /* TTDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA189AD51A74394E0002A4FF /* TTDetailViewController.xib */; };
+		EA189ADB1A75C05D0002A4FF /* TTCustomEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA189AD91A75C05D0002A4FF /* TTCustomEntryViewController.m */; };
+		EA189ADC1A75C05D0002A4FF /* TTCustomEntryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA189ADA1A75C05D0002A4FF /* TTCustomEntryViewController.xib */; };
+		EA189ADF1A75C7600002A4FF /* TTDetailViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = EA189ADE1A75C7600002A4FF /* TTDetailViewDataSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +71,11 @@
 		EA189AD31A74394E0002A4FF /* TTDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTDetailViewController.h; sourceTree = "<group>"; };
 		EA189AD41A74394E0002A4FF /* TTDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTDetailViewController.m; sourceTree = "<group>"; };
 		EA189AD51A74394E0002A4FF /* TTDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TTDetailViewController.xib; sourceTree = "<group>"; };
+		EA189AD81A75C05D0002A4FF /* TTCustomEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTCustomEntryViewController.h; sourceTree = "<group>"; };
+		EA189AD91A75C05D0002A4FF /* TTCustomEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTCustomEntryViewController.m; sourceTree = "<group>"; };
+		EA189ADA1A75C05D0002A4FF /* TTCustomEntryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TTCustomEntryViewController.xib; sourceTree = "<group>"; };
+		EA189ADD1A75C7600002A4FF /* TTDetailViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTDetailViewDataSource.h; sourceTree = "<group>"; };
+		EA189ADE1A75C7600002A4FF /* TTDetailViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTDetailViewDataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +150,11 @@
 				EA189AD31A74394E0002A4FF /* TTDetailViewController.h */,
 				EA189AD41A74394E0002A4FF /* TTDetailViewController.m */,
 				EA189AD51A74394E0002A4FF /* TTDetailViewController.xib */,
+				EA189ADD1A75C7600002A4FF /* TTDetailViewDataSource.h */,
+				EA189ADE1A75C7600002A4FF /* TTDetailViewDataSource.m */,
+				EA189AD81A75C05D0002A4FF /* TTCustomEntryViewController.h */,
+				EA189AD91A75C05D0002A4FF /* TTCustomEntryViewController.m */,
+				EA189ADA1A75C05D0002A4FF /* TTCustomEntryViewController.xib */,
 				7116F78719421700006C8F06 /* Images.xcassets */,
 				7116F77C19421700006C8F06 /* Supporting Files */,
 			);
@@ -253,6 +266,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA189ADC1A75C05D0002A4FF /* TTCustomEntryViewController.xib in Resources */,
 				7116F78019421700006C8F06 /* InfoPlist.strings in Resources */,
 				7116F78819421700006C8F06 /* Images.xcassets in Resources */,
 				EA189AD71A74394E0002A4FF /* TTDetailViewController.xib in Resources */,
@@ -280,6 +294,8 @@
 				7116F78219421700006C8F06 /* main.m in Sources */,
 				EA189ACF1A7429570002A4FF /* TTProjectController.m in Sources */,
 				EA189AD61A74394E0002A4FF /* TTDetailViewController.m in Sources */,
+				EA189ADF1A75C7600002A4FF /* TTDetailViewDataSource.m in Sources */,
+				EA189ADB1A75C05D0002A4FF /* TTCustomEntryViewController.m in Sources */,
 				EA189ACC1A7428F20002A4FF /* Project.m in Sources */,
 				EA189AC61A7427D80002A4FF /* TTListViewController.m in Sources */,
 			);

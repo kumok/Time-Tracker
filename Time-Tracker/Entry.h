@@ -9,18 +9,16 @@
 #import <Foundation/Foundation.h>
 
 
-//static NSString * const titleKey = @"title";
-//static NSString * const textKey = @"text";
-//static NSString * const timestampKey = @"timestamp";
+static NSString * const InKey = @"IN";
+static NSString * const OutKey = @"OUT";
 
 @interface Entry : NSObject
 
-//@property (nonatomic, strong) NSString *title;
-//@property (nonatomic, strong) NSString *text;
-//@property (nonatomic, strong) NSDate *timestamp;
-//
-//- (id)initWithDictionary:(NSDictionary *)dictionary;
-//
-//- (NSDictionary *)entryDictionary;
+@property (nonatomic, strong) NSDate *timeIn;
+@property (nonatomic, strong) NSDate *timeOut;
+
+- (id)initWithDictionary:(NSDictionary *)dictionary;
+
+- (NSDictionary *)entryDictionary;
 
 @end

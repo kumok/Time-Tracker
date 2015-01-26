@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Project.h"
 
 @interface TTDetailViewController : UIViewController
+
+@property (strong, nonatomic) Project *project;
 
 @end

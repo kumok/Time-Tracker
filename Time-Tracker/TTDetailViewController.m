@@ -7,21 +7,51 @@
 //
 
 #import "TTDetailViewController.h"
+#import "TTCustomEntryViewController.h"
+#import "TTDetailViewDataSource.h"
+#import "TTProjectController.h"
 
-@interface TTDetailViewController ()
+@interface TTDetailViewController () <UITextFieldDelegate, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *projectTextField;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UITableView *timeTableView;
 
 
+@property (strong, nonatomic) TTDetailViewDataSource *datasource;
+
 @end
 
 @implementation TTDetailViewController
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        self.datasource = [TTDetailViewDataSource new];
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    self.projectTextField.text = self.project.title;
+    self.projectTextField.delegate = self;
+    
+    self.datasource.project = self.project;
+    self.timeTableView.dataSource = self.datasource;
+    
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    
+    [self.timeTableView reloadData];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,8 +59,27 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)addButton:(id)sender {
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
 }
+
+-(BOOL)textFieldShouldEndEditing:(UITextField *)textField {
+    self.project.title = textField.text;
+    [[TTProjectController sharedInstance] synchronize];
+    return YES;
+}
+
+- (IBAction)addButton:(id)sender {
+    
+    TTCustomEntryViewController *customView = [TTCustomEntryViewController new];
+    customView.project = self.project;
+    [self presentViewController:customView animated:YES completion:nil];
+    
+    
+}
+
+
 
 - (IBAction)clockIn:(id)sender {
 }

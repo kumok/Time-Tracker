@@ -11,15 +11,18 @@
 
 @interface Project : NSObject
 
-//@property (strong, nonatomic) NSArray * entries;
-//@property (strong, nonatomic) NSString * title;
-//
-//- (NSDictionary *)projectDictionary;
-//-(id) initWithDictionary:(NSDictionary *)dictionary;
-//
-//
-//-(void)addEntry:(Entry *)entry;
-//-(void)removeEntry:(Entry *)entry;
-//
+@property (strong, nonatomic) NSArray * entries;
+@property (strong, nonatomic) NSString * title;
+
+-(id) initWithDictionary:(NSDictionary *)dictionary;
+- (NSDictionary *)projectDictionary;
+
+
+-(void)addEntry:(Entry *)entry;
+-(void)removeEntry:(Entry *)entry;
+-(void)setEntries:(NSArray *)entries;
+-(void)startNewEntry;
+-(void)endCurrentEntry;
+
 
 @end
