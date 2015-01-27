@@ -53,7 +53,7 @@ static NSString * const entriesKey = @"entries";
 
 -(void)setEntries:(NSArray *)entries {
     _entries = entries;
-    [self synchronize];
+//    [self synchronize];
 
 }
 

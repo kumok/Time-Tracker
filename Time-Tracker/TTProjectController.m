@@ -10,6 +10,11 @@
 
 static NSString *const projectListKey = @"ProjectList";
 
+@interface TTProjectController()
+
+@property (strong, nonatomic) NSArray * projets;
+
+@end
 
 @implementation TTProjectController
 

@@ -12,14 +12,15 @@
 
 @interface TTProjectController : NSObject
 
-@property (strong, nonatomic) NSArray * projets;
+
+@property (nonatomic, strong, readonly) NSArray *projets;
 
 
 + (TTProjectController *)sharedInstance;
 
 -(void)addProject:(Project *)projects;
 -(void) removeProject:(Project *)project;
-//-(void)setProjets:(NSArray *)project;
+-(void)setProjets:(NSArray *)projet;
 -(void)synchronize;
 
 

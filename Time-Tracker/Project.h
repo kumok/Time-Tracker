@@ -22,7 +22,7 @@
 
 -(void)addEntry:(Entry *)entry;
 -(void)removeEntry:(Entry *)entry;
-//-(void)setEntries:(NSArray *)entries;
+-(void)setEntries:(NSArray *)entries;
 -(void)startNewEntry;
 -(void)endCurrentEntry;
 

@@ -46,6 +46,11 @@
     
 }
 
+-(void)viewWillDisappear:(BOOL)animated {
+    
+    [[TTProjectController sharedInstance] synchronize];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];

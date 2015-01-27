@@ -35,12 +35,13 @@
     UITableView *projectTableView = [[UITableView alloc] initWithFrame:self.view.bounds];
     
     
-    _projectTableView = projectTableView;
+    self.projectTableView = projectTableView;
     
     [self.view addSubview:self.projectTableView];
     
     self.projectTableView.delegate = self;
     self.projectTableView.dataSource = self.dataSource;
+    
     [self.dataSource registerTableView:self.projectTableView];
 
     
