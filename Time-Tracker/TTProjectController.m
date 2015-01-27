@@ -27,7 +27,7 @@ static NSString *const projectListKey = @"ProjectList";
 }
 
 -(void)setProjets:(NSArray *)projets {
-    self.projets = projets;
+    _projets = projets;
     [self synchronize];
 }
 

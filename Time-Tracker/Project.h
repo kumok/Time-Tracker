@@ -13,6 +13,8 @@
 
 @property (strong, nonatomic) NSArray * entries;
 @property (strong, nonatomic) NSString * title;
+@property (strong, nonatomic) NSString * ducho;
+
 
 -(id) initWithDictionary:(NSDictionary *)dictionary;
 - (NSDictionary *)projectDictionary;
@@ -20,7 +22,7 @@
 
 -(void)addEntry:(Entry *)entry;
 -(void)removeEntry:(Entry *)entry;
--(void)setEntries:(NSArray *)entries;
+//-(void)setEntries:(NSArray *)entries;
 -(void)startNewEntry;
 -(void)endCurrentEntry;
 

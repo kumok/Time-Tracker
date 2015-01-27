@@ -51,12 +51,12 @@ static NSString * const entriesKey = @"entries";
     return dictionary;
 }
 
-// i think this one is not required since entries is a property and we don't need a setter method for property ?
 -(void)setEntries:(NSArray *)entries {
-    self.entries = entries;
+    _entries = entries;
     [self synchronize];
 
 }
+
 
 - (void)synchronize {
     
