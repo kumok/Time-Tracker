@@ -35,9 +35,9 @@
     
     Entry *entry = [Entry new];
     entry = [self.project entries][indexPath.row];
-    NSLog(@"%@",entry.timeIn);
-//    cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@", entry.timeIn, entry.timeOut];
-    cell.textLabel.text = [NSString stringWithFormat:@"%d - %d", 1, 1];
+//    NSLog(@"%@",entry.timeIn);
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@", entry.timeIn, entry.timeOut];
+//    cell.textLabel.text = [NSString stringWithFormat:@"%d - %d", 1, 1];
 
     return cell;
 

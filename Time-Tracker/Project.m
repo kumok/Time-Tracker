@@ -26,10 +26,13 @@ static NSString * const entriesKey = @"entries";
 -(id) initWithDictionary:(NSDictionary *)dictionary{
     self = [super init];
     if (self) {
-        self.title = dictionary[projectTitleKey];
+        _title = dictionary[projectTitleKey];
 
         NSMutableArray *entries = [NSMutableArray new];
-        entries = dictionary[entriesKey];
+        for (NSDictionary *entry in dictionary[entriesKey]) {
+            [entries addObject:[[Entry alloc] initWithDictionary:entry]];
+        }
+        
         _entries = entries;
     }
     
