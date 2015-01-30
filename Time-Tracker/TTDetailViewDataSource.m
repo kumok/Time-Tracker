@@ -8,11 +8,12 @@
 
 #import "TTDetailViewDataSource.h"
 #import "TTProjectController.h"
+#import "Entry.h"
 
 @implementation TTDetailViewDataSource 
 
 - (void)registerTableView:(UITableView *)tableView {
-    [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
+    [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
 }
 
 
@@ -26,15 +27,17 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class])];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:NSStringFromClass([UITableViewCell class])];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
     }
     
-    Entry *entry = [self.project entries][indexPath.row];
-    
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@", entry.timeIn, entry.timeOut];
+    Entry *entry = [Entry new];
+    entry = [self.project entries][indexPath.row];
+    NSLog(@"%@",entry.timeIn);
+//    cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@", entry.timeIn, entry.timeOut];
+    cell.textLabel.text = [NSString stringWithFormat:@"%d - %d", 1, 1];
 
     return cell;
 

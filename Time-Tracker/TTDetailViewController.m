@@ -48,7 +48,7 @@
 
 -(void)viewWillDisappear:(BOOL)animated {
     
-    [[TTProjectController sharedInstance] synchronize];
+//    [[TTProjectController sharedInstance] synchronize];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

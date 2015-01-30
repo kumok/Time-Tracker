@@ -24,7 +24,6 @@ static NSString *const projectListKey = @"ProjectList";
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedInstance = [[TTProjectController alloc] init];
-//        [sharedInstance registerForNotification];
         
         [sharedInstance loadFromDefaults];
     });
@@ -61,27 +60,25 @@ static NSString *const projectListKey = @"ProjectList";
 
 -(void)loadFromDefaults {
     NSArray *projectDict = [[NSUserDefaults standardUserDefaults] objectForKey:projectListKey];
-    
-    NSMutableArray *projects = [NSMutableArray array];
+
+    NSMutableArray *projects = [NSMutableArray new];
     
     for (NSDictionary *project in projectDict) {
-        Project *newProject = [[Project alloc] initWithDictionary:project];
-        [projects addObject:newProject];
+        [projects addObject:[[Project alloc] initWithDictionary:project]];
     }
-    self.projets = projects;
     
+    _projets = projects;
 }
 
 -(void)synchronize {
+    NSLog(@"how many times does this get called on launch");
     NSMutableArray *a = [NSMutableArray array];
     
     for (Project *project in self.projets) {
         [a addObject:[project projectDictionary]];
     }
     [[NSUserDefaults standardUserDefaults] setObject:a forKey:projectListKey];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
-    
+    [[NSUserDefaults standardUserDefaults] synchronize];    
 }
 
 @end

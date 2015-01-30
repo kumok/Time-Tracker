@@ -27,9 +27,10 @@ static NSString * const entriesKey = @"entries";
     self = [super init];
     if (self) {
         self.title = dictionary[projectTitleKey];
+
         NSMutableArray *entries = [NSMutableArray new];
         entries = dictionary[entriesKey];
-        self.entries = entries;
+        _entries = entries;
     }
     
     return self;
@@ -53,18 +54,12 @@ static NSString * const entriesKey = @"entries";
 
 -(void)setEntries:(NSArray *)entries {
     _entries = entries;
-//    [self synchronize];
-
+    [self synchronize];
 }
-
 
 - (void)synchronize {
-    
     [[TTProjectController sharedInstance] synchronize];
-    
 }
-
-
 
 -(void)startNewEntry {
     

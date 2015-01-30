@@ -34,7 +34,6 @@
     
     UITableView *projectTableView = [[UITableView alloc] initWithFrame:self.view.bounds];
     
-    
     self.projectTableView = projectTableView;
     
     [self.view addSubview:self.projectTableView];
